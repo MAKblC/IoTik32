@@ -1,11 +1,11 @@
 #include <otadrive_esp.h>                                     // Подключаем библиотеку для обновления по OTAdrive
 
-#define API_Key "e6983e6a-205e-4221-972a-70a1b80bcdce"        // API ключ устройства
+#define API_Key "key--------------"        // API ключ устройства
 #define FW_Version "1.0.1"                                    // Текущая версия прошивки 
 #define UpdReqTime 30                                         // Время через которое запрашивается обновление
 
-#define ssid "MGBot"
-#define password "Terminator812"
+#define ssid "---------"
+#define password "----------"
 
 #define LED 18                                                // 4 для ЙоТик32А \ 18 для ЙоТик32В.
 bool flagLED;
