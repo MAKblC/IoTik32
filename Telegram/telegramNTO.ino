@@ -3,7 +3,7 @@
 #include <UniversalTelegramBot.h>
 #define WIFI_SSID "Wokwi-GUEST"
 #define WIFI_PASSWORD ""
-#define BOT_TOKEN "917994990:AAEzww06oDul4JbgaWpO7ooDvr-RPiM4PUc"
+#define BOT_TOKEN ""
 
 const unsigned long BOT_MTBS = 1000; // время обновления
 WiFiClientSecure secured_client;
@@ -82,7 +82,7 @@ void handleNewMessages(int numNewMessages)
       welcome += "💧 Влажность воздуха: " + String(random(20,40)) + " %\n";
       welcome += "☁ Атмосферное давление: " + String(random(740,770)) + " мм рт.ст.\n";
       welcome += "☀ Освещенность: " + String(random(100,3000)) + " Лк\n";
-      welcome += "🅰 Ультрафиолет-А " + String(random(0,100)) + " mkWt/cm2\n";
+      welcome += "🅰 Ультрафиолет-А: " + String(random(0,100)) + " mkWt/cm2\n";
       welcome += "🅱 Ультрафиолет-В: " + String(random(0,100)) + " mkWt/cm2\n";
       welcome += "🔆 Индекс УФ: " + String(random(0,8)) + " \n";
       welcome += "🎏 Направление ветра: " + String(random(0,7)*45) + " °\n";
@@ -102,14 +102,11 @@ void handleNewMessages(int numNewMessages)
       String sms = "Информация о метеостанции: \n";
       sms += "MAC-адрес: " + String(WiFi.macAddress())+ "\n";
       Serial.println(WiFi.macAddress());
-     // String ipaddress = WiFi.localIP();
-     // sms += "IP-адрес подключения: " + ipaddress + "\n";
-      Serial.println(WiFi.localIP());
-     //  String hostname = WiFi.getHostname();
-     // sms += "IP-адрес подключения: " + hostname + "\n";
+      String hostname = WiFi.getHostname();
+      sms += "IP-адрес подключения: " + hostname + "\n";
       Serial.println(WiFi.getHostname());
       String encryptionTypeDescription = translateEncryptionType(WiFi.encryptionType(i));
-     // sms += "Тип шифрования: " + encryptionTypeDescription + "\n";
+      sms += "Тип шифрования: " + encryptionTypeDescription + "\n";
       Serial.println(encryptionTypeDescription );
       bot.sendMessage(chat_id, sms, "Markdown");
     }
