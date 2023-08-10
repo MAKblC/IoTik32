@@ -29,5 +29,5 @@ void loop() {
   Serial.print("H_value:");
   Serial.println(H_value);
   ThingSpeak.setField(1, H_value); //номер поля и значение 
-  ThingSpeak.writeFields(my_Channel_Number, my_API_Key); //запись данных на сервер
+  ThingSpeak.writeFields(myChannelNumber, myWriteAPIKey); //запись данных на сервер
 }
