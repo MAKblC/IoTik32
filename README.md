@@ -1,6 +1,6 @@
 # Примеры кодов для методического пособия по изучению контроллера ЙоТик 32
 
-![Device image](https://books.mgbot.ru/images/IOTIK32B-2-0.PNG)
+![Device image](https://books.mgbot.ru/images/IOTIK32B-2-3.PNG)
 
 https://mgbot.ru  - Сайт производителя (Интернет-магазин)
 
