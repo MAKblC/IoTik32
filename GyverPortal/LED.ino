@@ -10,9 +10,9 @@ bool valBtn;
 String BtnName = "On/Off";
 // конструктор страницы
 void build() {
-  BUILD_BEGIN();        //запускаем конструктор
+  GP.BUILD_BEGIN();        //запускаем конструктор
   GP.THEME(GP_DARK);    //устанавливаем тёмную тему
-  GP.AJAX_UPDATE("led");//создаём лист компонентов с динамическим изменением
+  GP.UPDATE("led");//создаём лист компонентов с динамическим изменением
   //Выстраиваем компонента объедения в блоки
   GP.TITLE("ЙоТик32");
   GP.HR();
@@ -27,7 +27,7 @@ void build() {
       GP_MAKE_BOX(GP.BUTTON_MINI("btn", BtnName); GP.CHECK("ch", valCheck); GP.SWITCH("sw", valSwitch););
     );
   );
-  BUILD_END(); //Завершаем строительство страницы
+  GP.BUILD_END(); //Завершаем строительство страницы
 }
 void setup() {
   Serial.begin(115200);
