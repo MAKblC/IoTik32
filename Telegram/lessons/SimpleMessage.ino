@@ -1,4 +1,4 @@
-#include <WiFi.h> // библиотекb для Wi-Fi
+#include <WiFi.h> // библиотека для Wi-Fi
 #include <WiFiClientSecure.h>
 #include <UniversalTelegramBot.h> // библиотека Телеграм
 #define WIFI_SSID "XXXXXX" // логин Wi-Fi
