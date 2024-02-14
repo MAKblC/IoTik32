@@ -10,12 +10,10 @@ WiFiClientSecure secured_client;                            // клиент SSL 
 UniversalTelegramBot bot(BOT_TOKEN, secured_client);        // экземпляр бота
 unsigned long bot_lasttime, hall_monitor;                   // счетчики времени
 
-#define LED 18                    // 4
 #define your_chat_ID "28XXXXX47"  // ID вашего чата с ботом
 
 void setup() {
   Serial.begin(115200);
-  pinMode(LED, OUTPUT);
   delay(512);
   Serial.println();
   Serial.print("Connecting to Wifi SSID ");
