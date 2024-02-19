@@ -10,7 +10,7 @@ UniversalTelegramBot bot(BOT_TOKEN, secured_client);              // экзем�
 unsigned long bot_lasttime;                                       // счетчик времени
 
 #define LED 18  // 4
-
+ // переменные
 String chat_id;
 String text;
 int message_id;
@@ -56,6 +56,7 @@ void handleNewMessages(int numNewMessages) {
   Serial.println(numNewMessages);
   // обработка сообщений
   for (int i = 0; i < numNewMessages; i++) {
+    // считывание ID сообщения   
     message_id = bot.messages[i].message_id;
     chat_id = bot.messages[i].chat_id;
     text = bot.messages[i].text;
@@ -64,6 +65,7 @@ void handleNewMessages(int numNewMessages) {
     if (from_name == "")
       from_name = "Guest";
     // обработка команд
+    // если сообщение имеет тип обратного запроса
     if (bot.messages[i].type == "callback_query") {
       if (text == "/menu") {
         String sms = "[[{\"text\" : \"Инфо о контроллере\", \"callback_data\" : \"/info\"},{\"text\" : \"Датчик Холла\", \"callback_data\" : \"/hall\"}]]";
@@ -72,6 +74,7 @@ void handleNewMessages(int numNewMessages) {
       } else {
         label();
       }
+      // обычные сообщения
     } else {
       if (text == "/start") {
         String sms = "[[{\"text\" : \"Меню\", \"callback_data\" : \"/menu\" }]]";
@@ -79,6 +82,7 @@ void handleNewMessages(int numNewMessages) {
         mail += "Этот бот может показать значения датчика и информацию о контроллере\n\n";
         mail += "*Нажми на «Меню», чтобы выбрать раздел и узнать больше ↓↓↓* \n\n";
         bot.sendMessageWithInlineKeyboard(chat_id, mail, "Markdown", sms);
+        // если команда незнакомая
       } else {
         String sms = "[[ { \"text\" : \"☰ В меню\", \"callback_data\" : \"/menu\" }]]";
         String mail = "Неизвестная команда. Вернуться в главное меню ↓↓↓\n";
@@ -87,8 +91,9 @@ void handleNewMessages(int numNewMessages) {
     }
   }
 }
-
+// функция конструктора команд
 void label() {
+  // текст сообщения и кнопки в панели
   String mail = "";
   String sms = "";
   if (text == "/info") {
@@ -99,7 +104,6 @@ void label() {
     mail += "Версия SDK: " + String(ESP.getSdkVersion()) + "\n";
     mail += "Размер флеш-памяти: " + String(ESP.getFlashChipSize()) + " байт\n";
     mail += "Частота чипа: " + String(ESP.getFlashChipSpeed()) + " Гц\n";
-
   } else if (text == "/hall") {
     val = hallRead();
     sms += "[[{ \"text\" : \"☰ В меню\", \"callback_data\" : \"/menu\" }],";
@@ -111,5 +115,6 @@ void label() {
     sms = "[[ { \"text\" : \"☰ В меню\", \"callback_data\" : \"/menu\" }]]";
     mail = "Неизвестная команда. Вернуться в главное меню ↓↓↓\n";
   }
+  // отправка сообщения с данными
   bot.sendMessageWithInlineKeyboard(chat_id, mail, "Markdown", sms, message_id);
 }
