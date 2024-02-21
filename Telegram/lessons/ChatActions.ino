@@ -43,14 +43,8 @@ void handleNewMessages(int numNewMessages) {
   Serial.println("handleNewMessages");
   Serial.println(String(numNewMessages));
   for (int i = 0; i < numNewMessages; i++) {
-    int message_id = bot.messages[i].message_id;
     String chat_id = String(bot.messages[i].chat_id);
     String text = bot.messages[i].text;
-    String query_id = String(bot.messages[i].query_id);
-    Serial.println(message_id);
-    Serial.println(text);
-    Serial.println(query_id);
-    text.toLowerCase();
     String from_name = bot.messages[i].from_name;
     if (from_name == "") from_name = "Guest";
     if (text == "/send_test_action") {
