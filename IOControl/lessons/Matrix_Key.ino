@@ -15,7 +15,7 @@ const char* key = "p1gXXXXXXXXXXXXxu";
 WiFiClient client;
 // Создаём объект iocontrol, передавая название панели, ключа и клиента
 iocontrol mypanel(myPanelName, key, client);
-// иконки для матрицы из структур двоичных чисел
+// иконки для матрицы из массива двоичных чисел
 uint8_t smiley[] = {
   0b00000000,
   0b00100100,
