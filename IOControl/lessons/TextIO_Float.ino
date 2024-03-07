@@ -46,7 +46,6 @@ void loop() {
   // ************************ ЗАПИСЬ ************************
   // Записываем  значение в переменную для отправки в сервис
   float hall = hallRead() + 0.3;
-  Serial.println(hall);
   mypanel.write(VarName_sensor, hall);  // Записали значение
   if (hall > 100) {
     myString = "danger";
