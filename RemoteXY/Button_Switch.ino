@@ -31,8 +31,8 @@ struct {
 #define LED 18  // 4
 
 void setup() {
-  // запуск
   pinMode(LED, OUTPUT);
+  // запуск
   RemoteXY_Init();
 }
 
