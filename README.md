@@ -16,6 +16,7 @@ https://мгбот.рф  - Сайт для образовательных учр
 | Blynk     | платформа Blynk Cloud |
 | Discord  |Discord bot|
 | EEPROM  | Энергонезависимая память|
+| ESP-NOW  | Передача данных по протоколу ESP-NOW|
 | FireBase  | платформа FireBase|
 | GoogleSheets  | передача данных в таблицу Google|
 | GyverPortal  | локальный сервер GyverPortal|
@@ -26,6 +27,7 @@ https://мгбот.рф  - Сайт для образовательных учр
 |NTP | Считывание времени с NTP-сервера|
 |OTA   |Прошивка контроллера по воздуху|
 | OpenWeather  |Считывание погоды|
+| RemoteXY  |BlueTooth приложение RemoteXY|
 | SD   |Работа с картой памяти|
 | Telegram  | Telegram bot|
 | ThingSpeak  | платформа ThingSpeak|
