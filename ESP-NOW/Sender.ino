@@ -15,12 +15,13 @@ typedef struct struct_message {
   String text;
 } struct_message;
 
-// Структура для собственного датчика Холла
+// Структура для переменных
 struct_message outgoingReadings;
 
+// переменная для хранения параметров приёмника
 esp_now_peer_info_t peerInfo;
 
-// Вызов, когда данные отправили
+// Функция при отправке
 void OnDataSent(const uint8_t *mac_addr, esp_now_send_status_t status) {
   if (status == 0) {
     success = "Успех отправки :)";
@@ -39,7 +40,7 @@ void setup() {
     return;
   }
 
-  // Как только протокол запущен, функция сообщает была ли доставка успешной.
+  // Как только протокол запущен, функция сообщает, была ли доставка успешной
   esp_now_register_send_cb(OnDataSent);
 
   // Указываем получателя
@@ -54,12 +55,12 @@ void setup() {
 
 void loop() {
 
-  // Set values to send
+  // Формирование данных в структуре
   outgoingReadings.example = random(10, 20);
   outgoingReadings.hall = hallRead();
   outgoingReadings.text = "I am #1";
 
-  // Send message via ESP-NOW
+  // Отправить сообщение
   esp_err_t result = esp_now_send(broadcastAddress, (uint8_t *)&outgoingReadings, sizeof(outgoingReadings));
 
   if (result == ESP_OK) {
