@@ -27,9 +27,9 @@ void loop()
     Serial << printbuffer;
   }
   if (RTC.hour() == 11 and RTC.minute() == 0 and x == 0) { // если по гринвичу 11-00 (14-00 МСК) то
-    Serial.println(“alarm!”); // включаем будильник  на 10 секунд
+    Serial.println("alarm!"); // включаем будильник  на 10 секунд
     delay(10000);
-    Serial.println(“alarm off!”);
+    Serial.println("alarm off!");
     x = 1; // устанавливаем флаг, чтобы он не включился повторно в ту же минуту
   }
   if (RTC.hour() == 11 and RTC.minute() == 1) { // в 14-01 сбрасываем флаг
